@@ -1,7 +1,9 @@
 # moviepick
 
-HTML5
-ES6
-SCSS
-asiox
-d3 framework
+HTML5<br/>
+ES6<br/>
+SCSS<br/>
+asiox<br/>
+d3 framework<br/>
+
+tmdb API for movie information
