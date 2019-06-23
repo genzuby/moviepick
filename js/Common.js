@@ -7,15 +7,16 @@ const GENRE_NAME = `${TMDB_URL}/genre/movie/list?api_key=${TMDB_AUTO_KEY}`;
 const NOW_PLAYING = `${TMDB_URL}/movie/now_playing?api_key=${TMDB_AUTO_KEY}&page=1`;
 const TOP_RATING = `${TMDB_URL}/movie/top_rated?api_key=${TMDB_AUTO_KEY}&page=1`;
 const MOVIE_POPULAR = `${TMDB_URL}/movie/popular?api_key=${TMDB_AUTO_KEY}&page=1`;
+const HOST_URL = "https://moviepick.netlify.com/";
 
 const getConnect = axios.create();
 
 getMoreInfo = param => {
-  window.open(`${document.URL}detailinfo.html?id=${param}`, "_parent");
+  window.open(`${HOST_URL}detailinfo.html?id=${param}`, "_parent");
 };
 
 function getHome() {
-  window.open(`${document.URL}index.html`, "_parent");
+  window.open(HOST_URL, "_parent");
 }
 
 function getParameterByName(name, url) {
