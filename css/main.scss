@@ -1,0 +1,300 @@
+@import "common.scss";
+@import url("https://fonts.googleapis.com/css?family=Arvo|Coming+Soon|Amatic+SC|Quattrocento|Dancing+Script|Federo|Indie+Flower|Luckiest+Guy|Racing+Sans+One|Noto+Serif|Roboto|Roboto+Condensed:700&display=swap");
+
+.ratingtext {
+  font-size: 1.58rem;
+}
+
+.main-hero {
+  height: 91vh;
+  position: relative;
+  width: 100%;
+  min-width: 480px;
+  padding: 4.5em 10%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.65);
+  background-blend-mode: multiply;
+
+  @include desktop {
+    height: 136vh;
+    width: 100%;
+    background-size: contain;
+  }
+
+  .today-pick {
+    position: absolute;
+    display: grid;
+    grid-template-columns: 45% 1fr;
+    grid-template-rows: auto auto auto auto auto 1fr auto;
+    grid-template-areas:
+      " today today "
+      " title trailer "
+      " releaseinfo trailer "
+      " addinfo trailer "
+      " rating trailer "
+      " desc trailer "
+      " moreinfo trailer ";
+
+    width: 82vw;
+    top: 1em;
+    bottom: 0;
+    padding: 3em 0;
+    justify-content: center;
+
+    @include desktop {
+      display: grid;
+      grid-template-columns: 1fr 15%;
+      grid-template-rows: auto auto auto auto 2fr auto auto;
+      grid-template-areas:
+        " today today "
+        " title rating "
+        " releaseinfo rating "
+        " addinfo rating "
+        " trailer trailer "
+        " desc desc "
+        " moreinfo moreinfo ";
+    }
+
+    h2 {
+      font-size: getFontSize(main-sml-logo);
+      color: getColor(moreInfo);
+      font-weight: 100;
+      grid-area: today;
+      padding: 3em 0 1em 0;
+
+      @include desktop {
+        padding-top: 4em;
+      }
+    }
+
+    h1 {
+      font-size: getFontSize(main-big-logo);
+      font-weight: 100;
+      padding-bottom: 3%;
+      grid-area: title;
+    }
+
+    h3 {
+      font-size: getFontSize(desc-font);
+      font-weight: 100;
+
+      &:nth-of-type(1) {
+        grid-area: releaseinfo;
+      }
+
+      &:nth-of-type(1) {
+        grid-area: addinfo;
+      }
+    }
+
+    .pick-rating {
+      width: 4em;
+      height: 4em;
+      margin-top: 1em;
+      grid-area: rating;
+    }
+
+    p {
+      padding-top: 4%;
+      width: 88%;
+      font-size: getFontSize(desc-font);
+      text-align: justify;
+      grid-area: desc;
+      overflow: hidden;
+      white-space: normal;
+      height: 7.3em;
+      text-overflow: ellipsis;
+      word-wrap: break-word;
+      line-height: 1.21em;
+      bottom: 1em;
+
+      @include desktop {
+        margin-top: 0;
+        width: 95%;
+      }
+    }
+
+    button {
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      background: rgba(0, 0, 0, 0.2);
+      color: #fff;
+      grid-area: moreinfo;
+      margin-top: 1em;
+      padding: 0.8em;
+      width: 11em;
+      border-radius: 8px;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      outline: none;
+      cursor: pointer;
+
+      @include desktop {
+        margin: 1em auto;
+      }
+
+      &:hover {
+        background: rgba(getColor(accentColor1), 0.5);
+      }
+    }
+
+    .trailer {
+      grid-area: trailer;
+      width: 88%;
+      height: 90%;
+      background: rgba(0, 0, 0, 0.2);
+      margin-left: 2%;
+      border-radius: 2px;
+      box-shadow: 10px 40px 50px 0 rgba(0, 0, 0, 0.7);
+      margin: auto 1em;
+
+      @include desktop {
+        margin-left: 0;
+        width: 95%;
+        height: 83%;
+      }
+
+      iframe {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.navi-list-group {
+  position: relative;
+  background: #02060e;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding-left: 10%;
+
+  li {
+    margin: auto 2em;
+    padding: 1em 0;
+    color: #fff;
+    font-size: getFontSize(import-text);
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  .selected-list-group {
+    border-bottom: 3px solid getColor(accentColor1);
+    opacity: 1;
+  }
+}
+.movie-list {
+  margin: 0 auto;
+  // min-width: 1010px;
+  height: 100%;
+  position: relative;
+
+  .list-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 220px);
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2% 12%;
+    position: absolute;
+
+    .list-item {
+      height: 72%;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+      position: relative;
+      transform: scale(1);
+      transition: transform ease-in-out 0.5s;
+      cursor: pointer;
+      margin-right: 1.5em;
+      margin-top: 3em;
+
+      .list-more-info {
+        background: none;
+        border: none;
+        outline: none;
+        color: getColor(moreInfo);
+      }
+
+      figcaption {
+        position: absolute;
+        margin: 1em;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 80%;
+        opacity: 0;
+        transition: top ease-in-out 0.35s;
+        z-index: 2;
+
+        .sml-text-p {
+          font-size: 0.8rem;
+        }
+        .list-more-info {
+          position: absolute;
+          bottom: 1%;
+          cursor: pointer;
+          font-family: inherit;
+
+          &:hover {
+            color: getColor(accentColor1);
+          }
+        }
+      }
+
+      &::after {
+        content: "";
+        background: rgba(0, 0, 0, 0.5);
+        display: block;
+        top: 100%;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        position: absolute;
+        transition: top ease-in-out 0.35s;
+      }
+
+      &:hover {
+        box-shadow: 0 5px 30px rgba(0, 0, 0, 0.7);
+        transform: scale(1.1);
+
+        &::after {
+          top: 3.2em;
+        }
+
+        figcaption {
+          top: 3.2em;
+          opacity: 1;
+        }
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+      }
+
+      .list-bottom {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        margin: 0.5em auto;
+
+        h3 {
+          font-weight: 100;
+          font-size: getFontSize(section-title-sml);
+          grid-column: 2;
+          margin-left: 0.5em;
+          display: flex;
+          align-items: center;
+        }
+
+        .list-rating {
+          width: 2.5em;
+          height: 2.5em;
+          grid-column: 1;
+        }
+      }
+    }
+  }
+}

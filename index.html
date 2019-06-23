@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script src="https://kit.fontawesome.com/164e2d601b.js"></script>
+    <link rel="stylesheet" href="./css/main.css" />
+    <title>Movie Picker</title>
+  </head>
+  <body>
+    <div class="go-home">
+      <img src="img/logo.png" />
+      <h2>All Movies</h2>
+    </div>
+    <div class="search-group">
+      <input type="text" id="search-movie" class="search-input" />
+      <ul class="searched-list" id="matched-list"></ul>
+    </div>
+    <header class="main-hero">
+      <div class="today-pick">
+        <h2>Today's Pick</h2>
+        <h1></h1>
+        <h3 class="detail-info"></h3>
+        <h3 class="release-date"></h3>
+        <div class="pick-rating"></div>
+        <div class="trailer"></div>
+        <p></p>
+      </div>
+    </header>
+    <div class="menu-area">
+      <ul class="navi-list-group">
+        <li id="now-playing">Now Playing</li>
+        <li id="top-rating">Top Rating</li>
+        <li id="movie-popular">Popular</li>
+      </ul>
+    </div>
+    <section class="movie-list">
+      <div class="list-group" id="now-playing-list"></div>
+      <div class="list-group" id="top-rating-list"></div>
+      <div class="list-group" id="movie-popular-list"></div>
+    </section>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="./js/ratingDonut.js"></script>
+    <script src="./js/Common.js"></script>
+    <script src="./js/makeObject.js"></script>
+    <script src="./js/buildMainPage.js"></script>
+    <script src="./js/buildSearchList.js"></script>
+  </body>
+</html>

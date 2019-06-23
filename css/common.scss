@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+
+$desktop: 1100px;
+@mixin desktop {
+  @media (max-width: #{$desktop}) {
+    @content;
+  }
+}
+
+$colors: (
+  accentColor1: #f77824,
+  accentColor2: #fa7000,
+  moreInfo: #02adfc
+);
+
+$fonts: (
+  main-big-logo: calc(2.8rem + 2vw),
+  main-mid-logo: calc(0.8rem + 1.5vw),
+  main-sml-logo: calc(0.5rem + 1.5vw),
+  import-text: calc(0.7rem + 0.5vw),
+  section-title-big: calc(2rem + 1vw),
+  section-title: calc(0.8rem + 0.7vw),
+  section-title-sml: calc(0.8rem + 0.2vw),
+  search-input: calc(0.8rem + 0.3vw),
+  desc-font: calc(0.5rem + 0.5vw)
+);
+
+@function getFontSize($size-name) {
+  @return map-get($fonts, $size-name);
+}
+
+@function getColor($colorname) {
+  @return map-get($colors, $colorname);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+}
+
+body {
+  background: #0a0e16;
+  font-family: "Quicksand", sans-serif;
+  color: #fff;
+  font-weight: 100;
+  width: 100%;
+  height: 100%;
+
+  a {
+    text-decoration: none;
+  }
+
+  ul,
+  li {
+    list-style-type: none;
+  }
+}
+
+.search-group {
+  position: absolute;
+  z-index: 9;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3em;
+
+  input[type="text"] {
+    padding: 0.8em 1.5em;
+    width: 50%;
+    top: 3em;
+    color: transparent;
+    font-weight: 100;
+    font-family: inherit;
+    font-size: getFontSize(search-input);
+    border: 2px solid rgba(#fff, 0.1);
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    outline: none;
+
+    @include desktop {
+      width: 80%;
+    }
+
+    &:focus {
+      border-color: getColor(accentColor1);
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+    }
+  }
+
+  .searched-list {
+    width: 49.8%;
+    max-height: 78vh;
+    border: 1px solid rgba(#fff, 0.1);
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    overflow-y: scroll;
+
+    @include desktop {
+      width: 79.8%;
+    }
+
+    li {
+      display: grid;
+      grid: 1fr 28% 28% / 10% 1fr;
+      grid-column-gap: 1em;
+      padding: 0.6em 2em;
+      border-left: 7px solid transparent;
+      border-bottom: 1px solid #353535;
+      color: #c9c9c9;
+      font-weight: 100;
+      cursor: pointer;
+
+      &:hover {
+        border-left: 7px solid #fa7000;
+        background: #ffb77c;
+        color: #353535;
+      }
+
+      img {
+        grid-column: 1;
+        grid-row: 1 / 4;
+        width: 76%;
+      }
+
+      h5 {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      div {
+        grid-column: 2;
+        grid-row: 2;
+        display: flex;
+
+        p {
+          padding-right: 0.5em;
+        }
+
+        i {
+          margin-top: 0.1em;
+          font-size: 0.8rem;
+        }
+      }
+
+      p {
+        grid-column: 2;
+        grid-row: 3;
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
+
+.go-home {
+  position: absolute;
+  z-index: 10;
+  top: calc(1em + 1vw);
+  left: calc(1.5em + 1.5vw);
+  cursor: pointer;
+
+  img {
+    width: 20%;
+  }
+
+  h2 {
+    font-weight: 100;
+    font-size: 0.9rem;
+    color: getColor(accentColor1);
+
+    @include desktop {
+      display: none;
+    }
+  }
+}

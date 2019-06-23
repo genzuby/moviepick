@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./css/detailinfo.css" />
+    <script src="https://kit.fontawesome.com/164e2d601b.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="go-home" title="Go Home" onclick="getHome();">
+      <img src="img/logo.png" />
+      <h2>All Movies</h2>
+    </div>
+    <div class="search-group">
+      <input type="text" id="search-movie" class="search-input" />
+      <ul class="searched-list" id="matched-list"></ul>
+    </div>
+    <section class="detail-main">
+      <h2></h2>
+      <h1></h1>
+      <i class="addfavorite far fa-bookmark"></i>
+      <h3></h3>
+      <a class="official-link" href="" target="_blank">Official Page</a>
+      <div class="rating-info"></div>
+      <div class="main-clip trailer"></div>
+      <div class="clip-list trailer-thumb-group"></div>
+      <p></p>
+      <div class="social-link"></div>
+    </section>
+    <section class="like-this-list like-this-movies">
+      <h2>More Like This</h2>
+      <div class="like-this-group" id="likethisMovie"></div>
+    </section>
+    <section class="like-this-list you-may-like">
+      <h2>You May Like These</h2>
+      <div class="like-this-group" id="maylikeMovie"></div>
+    </section>
+    <section class="detail-sub">
+      <h2>Cast Info</h2>
+      <div class="cast-main"></div>
+      <div class="cast-list"></div>
+    </section>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/Common.js"></script>
+    <script src="./js/makeObject.js"></script>
+    <script src="./js/buildDetailPage.js"></script>
+    <script src="./js/makeVideo.js"></script>
+    <script src="./js/buildSearchList.js"></script>
+    <script src="./js/getCreditInfo.js"></script>
+  </body>
+</html>

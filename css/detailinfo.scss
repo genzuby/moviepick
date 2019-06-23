@@ -1,0 +1,354 @@
+@import "common.scss";
+
+.detail-main {
+  padding: 9em calc(3em + 10vw) 4em calc(3em + 10vw);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0, 0.65);
+  background-blend-mode: multiply;
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 26% 1fr 20%;
+  grid-template-rows: auto;
+  grid-template-areas:
+    " subtitle subtitle subtitle "
+    " title title bookmark "
+    " . rating rating "
+    " genreinfo genreinfo genreinfo "
+    " official official official "
+    " poster mainclip mainclip "
+    " cliplist cliplist cliplist "
+    " desc desc desc "
+    " social social social ";
+  grid-gap: 0.5em;
+
+  @include desktop {
+    padding-top: 9em;
+    grid-template-columns: 28% 1fr 3%;
+    grid-template-areas:
+      " subtitle subtitle subtitle "
+      " title title bookmark "
+      " rating rating rating "
+      " genreinfo genreinfo genreinfo "
+      " official official official "
+      " poster mainclip mainclip "
+      " cliplist cliplist cliplist "
+      " desc desc desc "
+      " social social social ";
+  }
+
+  h1 {
+    font-size: getFontSize(section-title-big);
+    font-weight: 100;
+    grid-area: title;
+  }
+
+  .addfavorite {
+    grid-area: bookmark;
+    font-size: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 0.5em;
+    opacity: 0.6;
+  }
+
+  h2 {
+    font-size: getFontSize(section-title-sml);
+    font-weight: 100;
+    grid-area: subtitle;
+  }
+
+  h3 {
+    font-size: 1rem;
+    font-weight: 100;
+    grid-area: genreinfo;
+  }
+
+  a {
+    color: #fff;
+    grid-area: official;
+    margin-bottom: 2em;
+    &:hover {
+      color: getColor(accentColor2);
+    }
+  }
+
+  img {
+    grid-area: poster;
+    width: 100%;
+  }
+
+  .main-clip {
+    grid-area: mainclip;
+    width: 100%;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .clip-list {
+    grid-area: cliplist;
+    margin: 0;
+    display: flex;
+    position: relative;
+    cursor: pointer;
+
+    .left-arrow,
+    .right-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translate(-30%, -50%);
+      font-size: calc(0.8rem + 1.4vw);
+      z-index: 9;
+      height: 1em;
+      width: 1em;
+      opacity: 0.5;
+      display: none;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    .left-arrow {
+      left: -0.2em;
+    }
+
+    .right-arrow {
+      right: -0.8em;
+    }
+
+    picture {
+      width: 17%;
+      height: 100%;
+      padding: 0 0.25em;
+      position: relative;
+      cursor: pointer;
+
+      &::after {
+        content: url(../img/youtube-brands.svg);
+        position: absolute;
+        top: 40%;
+        left: 40%;
+        transition: transform(-50%, -50%);
+        width: 25%;
+        opacity: 0.8;
+      }
+
+      &:hover:after {
+        opacity: 1;
+        content: url(../img/youtube-brands-over.svg);
+      }
+
+      img {
+        object-fit: contain;
+      }
+    }
+  }
+
+  .rating-info {
+    grid-area: rating;
+    display: flex;
+    justify-content: flex-end;
+
+    @include desktop {
+      justify-content: flex-start;
+    }
+
+    .pop-rating {
+      font-size: 1.8rem;
+      font-weight: 100;
+    }
+
+    .star-rating {
+      margin: 0.6em 1em;
+      font-size: 1rem;
+      color: getColor(accentColor2);
+    }
+  }
+
+  p {
+    grid-area: desc;
+    font-size: getFontSize(section-title-sml);
+    font-weight: 100;
+    padding: 3em;
+  }
+
+  .social-link {
+    grid-area: social;
+    font-size: 2.1rem;
+    display: flex;
+    justify-content: center;
+
+    i {
+      margin: auto 0.2em;
+      cursor: pointer;
+    }
+
+    .fa-imdb:hover {
+      color: #dfba02;
+    }
+    .fa-facebook-square:hover {
+      color: #3b5998;
+    }
+    .fa-instagram:hover {
+      color: #d62976;
+    }
+    .fa-twitter:hover {
+      color: #00acee;
+    }
+  }
+}
+
+.like-this-list {
+  padding: 3em calc(3em + 10vw);
+
+  h2 {
+    font-size: getFontSize(section-title);
+  }
+
+  .like-this-group {
+    margin: 3em auto;
+    display: grid;
+    justify-content: center;
+    grid: auto / repeat(auto-fit, 140px);
+    grid-column-gap: 1em;
+
+    .like-this-item {
+      position: relative;
+      margin-bottom: 2em;
+      cursor: pointer;
+
+      &:hover > .item-front {
+        transform: perspective(1000px) rotateY(-180deg);
+      }
+
+      &:hover > .item-back {
+        transform: perspective(1000px) rotateY(0deg);
+      }
+
+      .movie-card {
+        box-shadow: 5px 10px 15px 0 rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(#fff, 0.2);
+        transition: transform 0.6s ease-in-out;
+        backface-visibility: hidden;
+        height: 200px;
+      }
+
+      .item-front {
+        transform: perspective(1000px) rotateY(0deg);
+
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      .item-back {
+        position: absolute;
+        top: 0;
+        transform: perspective(1000px) rotateY(180deg);
+        display: grid;
+        grid: 1fr 20% 11.5% / auto;
+        padding: 1.2em;
+        width: 100%;
+
+        p {
+          text-align: justify;
+          color: #fff;
+          font-size: 0.8rem;
+        }
+
+        p:nth-of-type(1) {
+          grid-row: 1;
+        }
+
+        p:nth-of-type(2) {
+          grid-row: 2;
+        }
+
+        a {
+          grid-row: 3;
+          color: getColor(moreInfo);
+
+          &:hover {
+            color: getColor(accentColor1);
+          }
+        }
+      }
+
+      .card-info {
+        padding: 0.5em;
+
+        h5 {
+          font-weight: 100;
+        }
+
+        div {
+          display: flex;
+
+          p {
+            font-weight: 100;
+            padding-right: 0.5em;
+          }
+          i {
+            font-size: 0.8rem;
+            margin-top: 0.3em;
+          }
+        }
+      }
+    }
+  }
+}
+
+.detail-sub {
+  padding: 3em calc(3em + 10vw);
+
+  h2 {
+    font-size: getFontSize(section-title);
+  }
+
+  .cast-main {
+    margin: 2em auto;
+    h4 {
+      padding: 0.5em 0;
+      font-weight: 100;
+    }
+  }
+
+  .cast-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+    justify-content: center;
+
+    .cast {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      grid-template-rows: 30% 28% 1fr;
+      grid-template-areas:
+        " headshot name "
+        " headshot role ";
+      padding: 0.3em 0em;
+      grid-column-gap: 0.8em;
+
+      img {
+        grid-area: headshot;
+        width: 100%;
+        height: 70px;
+        object-fit: contain;
+      }
+
+      h5 {
+        grid-area: name;
+      }
+
+      .role {
+        grid-area: role;
+      }
+    }
+  }
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "boyhood",
+    "tmdbid": 85350,
+    "fontfamily": "'Indie Flower', cursive",
+    "uppercase": "N"
+  },
+  {
+    "id": 2,
+    "title": "La La Land",
+    "tmdbid": 313369,
+    "fontfamily": "'Federo', sans-serif",
+    "uppercase": "Y"
+  },
+  {
+    "id": 3,
+    "title": "the-florida-project",
+    "tmdbid": 394117,
+    "fontfamily": "'Dancing Script', cursive",
+    "uppercase": "N"
+  },
+  {
+    "id": 4,
+    "title": "The Favourite",
+    "tmdbid": 375262,
+    "fontfamily": "'Noto Serif', serif",
+    "uppercase": "N"
+  },
+  {
+    "id": 5,
+    "title": "Inside Out",
+    "tmdbid": 150540,
+    "fontfamily": "'Luckiest Guy', cursive",
+    "uppercase": "Y"
+  },
+  {
+    "id": 6,
+    "title": "fight-club",
+    "tmdbid": 550,
+    "fontfamily": "'Racing Sans One', cursive",
+    "uppercase": "Y"
+  },
+  {
+    "id": 7,
+    "title": "blue-valentine",
+    "tmdbid": 46705,
+    "fontfamily": "'Amatic SC', cursive",
+    "uppercase": "Y"
+  },
+  {
+    "id": 8,
+    "title": "Princess Mononoke",
+    "tmdbid": 128,
+    "fontfamily": "'Quattrocento', serif",
+    "uppercase": "N"
+  },
+  {
+    "id": 9,
+    "title": "birdman",
+    "tmdbid": 194662,
+    "fontfamily": "'Roboto Condensed', sans-serif",
+    "uppercase": "Y"
+  },
+  {
+    "id": 10,
+    "title": "isle-of-dogs",
+    "tmdbid": 399174,
+    "fontfamily": "'Arvo', serif",
+    "uppercase": "N"
+  }
+]
