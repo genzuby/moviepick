@@ -15,7 +15,7 @@ getMoreInfo = param => {
 };
 
 function getHome() {
-  window.open(document.URL, "_parent");
+  window.open(`${document.URL}index.html`, "_parent");
 }
 
 function getParameterByName(name, url) {
