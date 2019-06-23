@@ -1,6 +1,6 @@
 # moviepick
 
-## Devoleped with those lib or framework.
+## Devoleped with the blows.
 HTML5<br/>
 ES6<br/>
 scss<br/>
