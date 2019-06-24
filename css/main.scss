@@ -22,6 +22,12 @@
     background-size: contain;
   }
 
+  @include mobile {
+    height: 110vh;
+    width: 100%;
+    background-size: contain;
+  }
+
   .today-pick {
     position: absolute;
     display: grid;
@@ -56,6 +62,22 @@
         " moreinfo moreinfo ";
     }
 
+    @include mobile {
+      display: grid;
+      grid-template-columns: 1fr 20%;
+      grid-template-rows: 12% 17% 2.5% 5% 28% 23% 7%;
+      grid-template-areas:
+        " today today "
+        " title title "
+        " releaseinfo rating "
+        " addinfo rating "
+        " trailer trailer "
+        " desc desc "
+        " moreinfo moreinfo ";
+
+      padding: 3em 0 0 0;
+    }
+
     h2 {
       font-size: getFontSize(main-sml-logo);
       color: getColor(moreInfo);
@@ -66,6 +88,11 @@
       @include desktop {
         padding-top: 4em;
       }
+
+      @include mobile {
+        padding-top: 3.5em;
+        font-size: 1rem;
+      }
     }
 
     h1 {
@@ -73,6 +100,10 @@
       font-weight: 100;
       padding-bottom: 3%;
       grid-area: title;
+
+      @include mobile {
+        font-size: 2.6rem;
+      }
     }
 
     h3 {
@@ -93,6 +124,12 @@
       height: 4em;
       margin-top: 1em;
       grid-area: rating;
+
+      @include mobile {
+        margin-top: 0;
+        width: 3em;
+        height: 3em;
+      }
     }
 
     p {
@@ -112,6 +149,12 @@
       @include desktop {
         margin-top: 0;
         width: 95%;
+      }
+
+      @include mobile {
+        margin-top: 0;
+        width: 98%;
+        height: 11.6em;
       }
     }
 
@@ -133,6 +176,11 @@
         margin: 1em auto;
       }
 
+      @include mobile {
+        margin: 2em auto;
+        font-size: 0.8rem;
+      }
+
       &:hover {
         background: rgba(getColor(accentColor1), 0.5);
       }
@@ -151,6 +199,12 @@
       @include desktop {
         margin-left: 0;
         width: 95%;
+        height: 83%;
+      }
+
+      @include desktop {
+        margin-left: 0;
+        width: 100%;
         height: 83%;
       }
 
@@ -186,7 +240,6 @@
 }
 .movie-list {
   margin: 0 auto;
-  // min-width: 1010px;
   height: 100%;
   position: relative;
 
@@ -201,6 +254,12 @@
     padding: 2% 12%;
     position: absolute;
 
+    @include mobile {
+      grid-template-columns: repeat(auto-fit, 146px);
+      justify-content: center;
+      padding: 0 6%;
+    }
+
     .list-item {
       height: 72%;
       box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
@@ -210,6 +269,12 @@
       cursor: pointer;
       margin-right: 1.5em;
       margin-top: 3em;
+
+      @include mobile {
+        height: 82%;
+        margin-right: 1em;
+        margin-top: 1em;
+      }
 
       .list-more-info {
         background: none;
@@ -228,6 +293,10 @@
         opacity: 0;
         transition: top ease-in-out 0.35s;
         z-index: 2;
+
+        @include mobile {
+          font-size: 0.7rem;
+        }
 
         .sml-text-p {
           font-size: 0.8rem;
@@ -262,6 +331,10 @@
 
         &::after {
           top: 3.2em;
+
+          @include mobile {
+            top: 2.2em;
+          }
         }
 
         figcaption {
@@ -279,6 +352,10 @@
         display: grid;
         grid-template-columns: 20% 80%;
         margin: 0.5em auto;
+
+        @include mobile {
+          display: none;
+        }
 
         h3 {
           font-weight: 100;

@@ -1,6 +1,5 @@
 class MovieMain extends Movie {
   displayHeader(data, titleDesign) {
-    console.log(data, titleDesign);
     const h1Title = document.querySelector(".today-pick > h1");
     h1Title.style.fontFamily = titleDesign.fontfam;
     h1Title.style.textTransform =

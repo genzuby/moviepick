@@ -1,8 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
 
 $desktop: 1100px;
+$mobile: 500px;
 @mixin desktop {
-  @media (max-width: #{$desktop}) {
+  @media screen and (min-width: $mobile + 1) and (max-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media only screen and (max-width: $mobile) {
     @content;
   }
 }
@@ -17,12 +24,12 @@ $fonts: (
   main-big-logo: calc(2.8rem + 2vw),
   main-mid-logo: calc(0.8rem + 1.5vw),
   main-sml-logo: calc(0.5rem + 1.5vw),
-  import-text: calc(0.7rem + 0.5vw),
-  section-title-big: calc(2rem + 1vw),
+  import-text: calc(0.6rem + 0.6vw),
+  section-title-big: calc(1.2rem + 1.8vw),
   section-title: calc(0.8rem + 0.7vw),
   section-title-sml: calc(0.8rem + 0.2vw),
   search-input: calc(0.8rem + 0.3vw),
-  desc-font: calc(0.5rem + 0.5vw)
+  desc-font: calc(0.7rem + 0.3vw)
 );
 
 @function getFontSize($size-name) {
@@ -87,6 +94,11 @@ body {
       width: 80%;
     }
 
+    @include mobile {
+      width: 100%;
+      top: 5em;
+    }
+
     &:focus {
       border-color: getColor(accentColor1);
       background: rgba(0, 0, 0, 0.6);
@@ -106,6 +118,11 @@ body {
       width: 79.8%;
     }
 
+    @include mobile {
+      width: 100%;
+      max-height: 65vh;
+    }
+
     li {
       display: grid;
       grid: 1fr 28% 28% / 10% 1fr;
@@ -117,6 +134,10 @@ body {
       font-weight: 100;
       cursor: pointer;
 
+      @include mobile {
+        font-sizr: 0.9rem;
+      }
+
       &:hover {
         border-left: 7px solid #fa7000;
         background: #ffb77c;
@@ -127,11 +148,19 @@ body {
         grid-column: 1;
         grid-row: 1 / 4;
         width: 76%;
+
+        @include mobile {
+          width: 160%;
+        }
       }
 
       h5 {
         grid-column: 2;
         grid-row: 1;
+
+        @include mobile {
+          font-sizr: 0.8rem;
+        }
       }
 
       div {
@@ -146,6 +175,10 @@ body {
         i {
           margin-top: 0.1em;
           font-size: 0.8rem;
+
+          @include mobile {
+            font-sizr: 0.6rem;
+          }
         }
       }
 
@@ -153,6 +186,10 @@ body {
         grid-column: 2;
         grid-row: 3;
         font-size: 0.8rem;
+
+        @include mobile {
+          font-sizr: 0.6rem;
+        }
       }
     }
   }
@@ -167,6 +204,10 @@ body {
 
   img {
     width: 20%;
+
+    @include mobile {
+      width: 10%;
+    }
   }
 
   h2 {
@@ -175,6 +216,10 @@ body {
     color: getColor(accentColor1);
 
     @include desktop {
+      display: none;
+    }
+
+    @include mobile {
       display: none;
     }
   }

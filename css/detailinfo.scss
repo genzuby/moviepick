@@ -37,6 +37,20 @@
       " social social social ";
   }
 
+  @include mobile {
+    display: grid;
+    grid-template-columns: 99% 0% 1%;
+    grid-template-areas:
+      " subtitle subtitle subtitle "
+      " title title title"
+      " rating rating rating "
+      " genreinfo genreinfo genreinfo "
+      " official official official "
+      " mainclip mainclip mainclip "
+      " desc desc desc "
+      " social social social ";
+  }
+
   h1 {
     font-size: getFontSize(section-title-big);
     font-weight: 100;
@@ -51,6 +65,10 @@
     align-items: flex-end;
     margin-right: 0.5em;
     opacity: 0.6;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   h2 {
@@ -60,7 +78,7 @@
   }
 
   h3 {
-    font-size: 1rem;
+    font-size: getFontSize(section-title-sml);
     font-weight: 100;
     grid-area: genreinfo;
   }
@@ -77,6 +95,10 @@
   img {
     grid-area: poster;
     width: 100%;
+
+    @include mobile {
+      display: none;
+    }
   }
 
   .main-clip {
@@ -90,6 +112,10 @@
   }
 
   .clip-list {
+    @include mobile {
+      display: none;
+    }
+
     grid-area: cliplist;
     margin: 0;
     display: flex;
@@ -158,14 +184,21 @@
       justify-content: flex-start;
     }
 
+    @include mobile {
+      justify-content: flex-start;
+    }
     .pop-rating {
-      font-size: 1.8rem;
+      font-size: calc(1rem + 0.8vw);
       font-weight: 100;
+
+      @include mobile {
+        margin-top: 0.2em;
+      }
     }
 
     .star-rating {
       margin: 0.6em 1em;
-      font-size: 1rem;
+      font-size: calc(0.8rem + 0.2vw);
       color: getColor(accentColor2);
     }
   }
@@ -175,6 +208,10 @@
     font-size: getFontSize(section-title-sml);
     font-weight: 100;
     padding: 3em;
+
+    @include mobile {
+      padding: 1em 0;
+    }
   }
 
   .social-link {
@@ -183,6 +220,9 @@
     display: flex;
     justify-content: center;
 
+    @include mobile {
+      font-size: 1.4rem;
+    }
     i {
       margin: auto 0.2em;
       cursor: pointer;
@@ -204,6 +244,9 @@
 }
 
 .like-this-list {
+  @include mobile {
+    display: none;
+  }
   padding: 3em calc(3em + 10vw);
 
   h2 {
@@ -317,10 +360,14 @@
     h4 {
       padding: 0.5em 0;
       font-weight: 100;
+      font-size: getFontSize(section-title-sml);
     }
   }
 
   .cast-list {
+    @include mobile {
+      display: none;
+    }
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
     justify-content: center;

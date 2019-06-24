@@ -61,9 +61,16 @@ body li {
   outline: none;
 }
 
-@media (max-width: 1100px) {
+@media screen and (min-width: 501px) and (max-width: 1100px) {
   .search-group input[type="text"] {
     width: 80%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .search-group input[type="text"] {
+    width: 100%;
+    top: 5em;
   }
 }
 
@@ -82,9 +89,16 @@ body li {
   overflow-y: scroll;
 }
 
-@media (max-width: 1100px) {
+@media screen and (min-width: 501px) and (max-width: 1100px) {
   .search-group .searched-list {
     width: 79.8%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .search-group .searched-list {
+    width: 100%;
+    max-height: 65vh;
   }
 }
 
@@ -99,6 +113,12 @@ body li {
   color: #c9c9c9;
   font-weight: 100;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 500px) {
+  .search-group .searched-list li {
+    font-sizr: 0.9rem;
+  }
 }
 
 .search-group .searched-list li:hover {
@@ -116,11 +136,23 @@ body li {
   width: 76%;
 }
 
+@media only screen and (max-width: 500px) {
+  .search-group .searched-list li img {
+    width: 160%;
+  }
+}
+
 .search-group .searched-list li h5 {
   -ms-grid-column: 2;
   grid-column: 2;
   -ms-grid-row: 1;
   grid-row: 1;
+}
+
+@media only screen and (max-width: 500px) {
+  .search-group .searched-list li h5 {
+    font-sizr: 0.8rem;
+  }
 }
 
 .search-group .searched-list li div {
@@ -142,12 +174,24 @@ body li {
   font-size: 0.8rem;
 }
 
+@media only screen and (max-width: 500px) {
+  .search-group .searched-list li div i {
+    font-sizr: 0.6rem;
+  }
+}
+
 .search-group .searched-list li p {
   -ms-grid-column: 2;
   grid-column: 2;
   -ms-grid-row: 3;
   grid-row: 3;
   font-size: 0.8rem;
+}
+
+@media only screen and (max-width: 500px) {
+  .search-group .searched-list li p {
+    font-sizr: 0.6rem;
+  }
 }
 
 .go-home {
@@ -162,13 +206,25 @@ body li {
   width: 20%;
 }
 
+@media only screen and (max-width: 500px) {
+  .go-home img {
+    width: 10%;
+  }
+}
+
 .go-home h2 {
   font-weight: 100;
   font-size: 0.9rem;
   color: #f77824;
 }
 
-@media (max-width: 1100px) {
+@media screen and (min-width: 501px) and (max-width: 1100px) {
+  .go-home h2 {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 500px) {
   .go-home h2 {
     display: none;
   }

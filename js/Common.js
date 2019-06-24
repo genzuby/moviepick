@@ -1,13 +1,15 @@
 const TMDB_URL = "https://api.themoviedb.org/3";
 const TMDB_IMG_URL = "https://image.tmdb.org/t/p/original";
 const TMDB_IMG_URL_SML = "https://image.tmdb.org/t/p/w500";
-const TMDB_AUTO_KEY = "4777c5796835519cf0b4eee975064849"; //"5a52ce9bf39ebab5b14ee20ac710c3cf";
+const TMDB_AUTO_KEY = "4777c5796835519cf0b4eee975064849";
+// const TMDB_AUTO_KEY = "5a52ce9bf39ebab5b14ee20ac710c3cf"; //  for local test
 const YOUTUBE_EMBED = "https://www.youtube.com/embed/";
 const GENRE_NAME = `${TMDB_URL}/genre/movie/list?api_key=${TMDB_AUTO_KEY}`;
 const NOW_PLAYING = `${TMDB_URL}/movie/now_playing?api_key=${TMDB_AUTO_KEY}&page=1`;
 const TOP_RATING = `${TMDB_URL}/movie/top_rated?api_key=${TMDB_AUTO_KEY}&page=1`;
 const MOVIE_POPULAR = `${TMDB_URL}/movie/popular?api_key=${TMDB_AUTO_KEY}&page=1`;
 const HOST_URL = "https://moviepick.netlify.com/";
+// const HOST_URL = "http://127.0.0.1:5500/"; //  for local test
 
 const getConnect = axios.create();
 
