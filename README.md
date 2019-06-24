@@ -1,9 +1,14 @@
 # moviepick
 
+## Devoleped with the blows.
 HTML5<br/>
 ES6<br/>
-SCSS<br/>
-asiox<br/>
+scss<br/>
+axios<br/>
 d3 framework<br/>
 
-tmdb API for movie information
+## Data
+tmdb API for movie information</br>
+
+## Deployed URL
+https://moviepick.netlify.com/
